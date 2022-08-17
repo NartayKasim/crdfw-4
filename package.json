@@ -1,0 +1,28 @@
+{
+   "name": "crdfw-2",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "start": "node index.js",
+      "build": "client/node_modules/react-scripts/bin/react-scripts.js build"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.1",
+      "express": "^4.18.1",
+      "express-session": "^1.17.3",
+      "massive": "^6.10.2"
+   },
+   "prettier": {
+      "tabWidth": 3
+   },
+   "devDependencies": {
+      "cheerio": "^1.0.0-rc.11",
+      "write-json-file": "^5.0.0"
+   }
+}

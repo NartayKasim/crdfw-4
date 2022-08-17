@@ -1,0 +1,24 @@
+.pageNotFound {
+   position: relative;
+   flex-grow: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.pageNotFoundInner {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+   background: var(--cultured);
+   border-radius: 1rem;
+}
+
+.row {
+   font-family: var(--font-family--header);
+   font-weight: 700;
+   font-size: 1.3rem;
+   padding: 1rem;
+}

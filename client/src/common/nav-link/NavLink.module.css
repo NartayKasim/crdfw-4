@@ -1,0 +1,21 @@
+.navLink,
+.navLinkActive {
+   position: relative;
+   text-decoration: none;
+   text-align: center;
+   font-weight: 600;
+   font-size: 1.3rem;
+   color: var(--navigation-link--active);
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+}
+
+.navLink {
+   color: var(--navigation-link--inactive);
+}
+
+.navLink:hover {
+   color: var(--gunmetal);
+   transition: color 0.3s;
+}

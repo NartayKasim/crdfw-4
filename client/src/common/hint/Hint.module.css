@@ -1,0 +1,10 @@
+.hint {
+   display: flex;
+   flex-wrap: wrap;
+   flex-grow: 1;
+   padding: 1rem;
+   border-left: 0.75rem solid var(--blue);
+   font-size: 1.3rem;
+   background: var(--cultured-2);
+   border-radius: 0.25rem;
+}

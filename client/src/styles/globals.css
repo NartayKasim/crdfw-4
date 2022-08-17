@@ -1,0 +1,66 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+   font-family: var(--font-family--primary);
+}
+
+html {
+   font-size: 62.5%;
+   height: auto;
+   width: auto;
+}
+
+body {
+   box-sizing: border-box;
+   margin: 0;
+   width: auto;
+   height: fit-content;
+   background: var(--page);
+}
+
+.App {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   min-height: 100vh;
+}
+
+nav {
+   position: sticky;
+   top: 0;
+   left: 0;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 10;
+   background: var(--navigation);
+   min-height: 5vh;
+   padding: 1.5rem;
+}
+
+.page {
+   position: relative;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   z-index: 0;
+   flex-grow: 1;
+}
+
+.inner-page {
+   position: relative;
+   width: var(--inner-page-width);
+}
+
+h1 {
+   font-size: 2rem;
+}
+
+h2 {
+   font-size: 1.8rem;
+}

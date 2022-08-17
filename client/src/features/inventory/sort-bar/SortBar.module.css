@@ -1,0 +1,152 @@
+.sortBar {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   height: auto;
+   gap: 1rem;
+}
+
+.section {
+   position: relative;
+   align-items: center;
+   display: flex;
+   justify-content: flex-end;
+   flex-wrap: wrap;
+   color: var(--slate-gray);
+   font-family: var(--font-family--header);
+   font-weight: 600;
+   font-size: 1.3rem;
+   gap: 3rem;
+   height: 6rem;
+   width: var(--inner-page-width);
+}
+
+.section > label > span,
+.section > label {
+   color: var(--gunmetal);
+   text-align: center;
+}
+
+.label {
+   display: flex;
+   width: min(15rem, 100%);
+}
+
+.select {
+   width: 100%;
+   padding: 0.25rem 1rem;
+   border: none;
+   background: var(--cultured-2);
+   border-radius: 0.25rem;
+}
+
+.option {
+   width: 20rem;
+}
+
+.sortByButton,
+.sortByButtonActive {
+   min-width: 8rem;
+   position: relative;
+   background: none;
+   border: none;
+   font-family: var(--font-family--header);
+   color: var(--slate-gray);
+   font-weight: 600;
+   font-size: 1.3rem;
+   cursor: pointer;
+   border-radius: 1rem;
+}
+
+.sortByButton:hover {
+   background: var(--cultured-2);
+}
+
+.sortByButtonActive {
+   background: var(--blue);
+   color: var(--cultured);
+}
+
+.sortOrderButton,
+.sortOrderButtonActive {
+   position: relative;
+   background: none;
+   border: none;
+   font-family: var(--font-family--header);
+   color: var(--slate-gray);
+   font-weight: 600;
+   font-size: 1.3rem;
+   cursor: pointer;
+   padding: 0.9rem 0;
+}
+
+.sortOrderButton:active,
+.sortOrderButtonActive:active {
+   outline: none;
+}
+
+.sortOrderButtonActive {
+   color: var(--blue);
+}
+
+.sortOrderButton:hover {
+   background: rgb(25, 118, 210, 0.5);
+   color: var(--cultured);
+   border-radius: 2rem;
+}
+
+.sortOrderButtonActive::after {
+   position: absolute;
+   bottom: -0.1rem;
+   left: 0;
+   width: 100%;
+   content: "";
+   animation: activateLink 0.3s forwards;
+}
+
+@keyframes activateLink {
+   0% {
+      height: 1px;
+      background: var(--davys-grey);
+   }
+
+   100% {
+      height: 3px;
+      background: var(--blue);
+   }
+}
+
+@keyframes deactivateLink {
+   0% {
+      height: 3px;
+      background: var(--blue);
+   }
+   100% {
+      height: 0px;
+      background: var(--davys-grey);
+   }
+}
+
+@media only screen and (max-width: 700px) {
+   .sortBar {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2rem;
+      padding-bottom: 3rem;
+   }
+
+   .section {
+      justify-content: space-between;
+   }
+}
+
+@media only screen and (max-width: 960px) {
+   .section {
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+      height: auto;
+   }
+}

@@ -1,0 +1,6 @@
+.display {
+   display: flex;
+   flex-direction: column;
+   gap: var(--default-padding);
+   flex-grow: 1;
+}

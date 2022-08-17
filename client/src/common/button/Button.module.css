@@ -1,0 +1,25 @@
+.button {
+   position: relative;
+   font-family: var(--font-family--primary);
+   background: none;
+   border: none;
+   font-size: 1.4rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.5rem 1rem;
+   border-radius: 0.25rem;
+   color: var(--blue);
+   background: var(--cultured-2);
+   cursor: pointer;
+}
+
+.button:hover {
+   background: var(--blue);
+   color: var(--cultured-2);
+}
+
+.button:active {
+   outline: none;
+}

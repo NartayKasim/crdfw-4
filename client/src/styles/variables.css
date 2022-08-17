@@ -1,0 +1,85 @@
+:root {
+   --font-family--secondary: "Roboto", sans-serif;
+   /* --font-family--primary: "Quicksand", sans-serif; */
+   /* --font-family--primary: "Oswald", sans-serif; */
+   --font-family--primary: "Source Sans Pro", sans-serif;
+
+   --inner-page-width: min(90rem, 100vw);
+   --default-padding: 3rem;
+
+   --red: rgb(211, 47, 47);
+   --green: rgb(46, 125, 50);
+   --yellow: rgb(237, 108, 2);
+   --blue: rgb(25, 118, 210);
+
+   --navigation: #ced4daff;
+   --navigation-link--active: var(--blue);
+   --navigation-link--inactive: var(--slate-gray);
+
+   --page: var(--cultured-2);
+
+   --input: rgb(200, 203, 207);
+
+   --bg-checked-in: rgb(158, 238, 158);
+   --bg-checked-in--font: rgb(44, 146, 44);
+   --bg-unknown: rgba(255, 0, 0, 0.497);
+   --bg-unknown--footer: rgba(255, 0, 0, 0.1);
+   --bg-undefined: #6a6b70ff;
+
+   --eerie-black: #131316ff;
+   --raisin-black: #1c1c21ff;
+   --raisin-black-2: #26262cff;
+   --jet: #2f3037ff;
+   --onyx: #393a41ff;
+   --davys-grey-2: #5b5c62ff;
+   --dim-gray: #6a6b70ff;
+
+   --cultured: rgb(248, 249, 250);
+   --cultured-2: rgb(233, 236, 239);
+   --gainsboro: #dee2e6ff;
+   --light-gray: #ced4daff;
+   --cadet-blue-crayola: #adb5bdff;
+   --slate-gray: #6c757dff;
+   --davys-grey: #495057ff;
+   --gunmetal: #343a40ff;
+   --charleston-green: #212529ff;
+
+   --up-maroon: #800016ff;
+   --ruby-red: #a0001cff;
+   --firebrick: #c00021ff;
+   --red-pigment: #ff002bff;
+   --steel-blue: #407ba7ff;
+   --usafa-blue: #004e89ff;
+   --royal-blue-dark: #002962ff;
+   --oxford-blue: #00043aff;
+
+   --dark-orange: #ff8800ff;
+   --yellow-orange-color-wheel: #ff9500ff;
+   --orange-web: #ffa200ff;
+   --chrome-yellow: #ffaa00ff;
+   --selective-yellow: #ffb700ff;
+   --mikado-yellow: #ffc300ff;
+   --cyber-yellow: #ffd000ff;
+   --sizzling-sunrise: #ffdd00ff;
+   --middle-yellow: #ffea00ff;
+
+   --forest-green-traditional: #004b23ff;
+   --dark-green-x-11: #006400ff;
+   --pakistan-green: #007200ff;
+   --ao-english: #008000ff;
+   --yellow-green-color-wheel: #38b000ff;
+   --sheen-green: #70e000ff;
+   --green-lizard: rgb(199, 243, 128);
+   --electric-lime: #ccff33ff;
+
+   --thistle: #dec9e9ff;
+   --thistle-2: #dac3e8ff;
+   --pink-lavender: #d2b7e5ff;
+   --wisteria: #c19ee0ff;
+   --lavender-floral: #b185dbff;
+   --amethyst: #a06cd5ff;
+   --amethyst-2: #9163cbff;
+   --blue-violet-crayola: #815ac0ff;
+   --royal-purple: #7251b5ff;
+   --plump-purple: #6247aaff;
+}

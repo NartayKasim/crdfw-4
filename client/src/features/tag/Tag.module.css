@@ -1,0 +1,211 @@
+.tagWrapper {
+   position: relative;
+   font-size: 1.3rem;
+   gap: 0.25rem;
+   display: flex;
+   flex-direction: column;
+   background: var(--gainsboro);
+   padding: 0.5rem;
+   padding-right: 0.75rem;
+   border-radius: 0.25rem;
+}
+
+.label {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   border-radius: 0.25rem;
+   gap: 0.5rem;
+}
+
+.tagValue {
+   padding: 0.25rem 0.5rem;
+   text-transform: uppercase;
+   font-weight: 600;
+   display: flex;
+   justify-content: space-between;
+}
+
+.value {
+   padding: 0.25rem 0.5rem;
+}
+
+.input {
+   border: none;
+   padding: 0.25rem 0.5rem;
+   background: var(--cadet-blue-crayola);
+}
+
+.header {
+   position: relative;
+   text-align: right;
+}
+
+.button {
+   position: relative;
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 0 1rem;
+}
+
+.button:hover {
+   font-weight: 600;
+}
+
+.footer {
+   display: flex;
+   justify-content: flex-end;
+   gap: 2rem;
+}
+
+.footerButton {
+   background: var(--cadet-blue-crayola);
+   padding: 0.35rem 1rem;
+   border: none;
+   border-radius: 0.25rem;
+   cursor: pointer;
+}
+
+.footerButton:hover {
+   background: var(--blue);
+}
+
+/* 
+.header {
+   display: flex;
+   align-items: center;
+}
+
+.button {
+   position: relative;
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 0 1rem;
+}
+
+.button:hover {
+   font-weight: 600;
+}
+
+.label {
+   position: relative;
+   z-index: 1;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   flex-grow: 1;
+}
+
+.tagValue {
+   width: 11rem;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   border-radius: 2rem;
+   padding: 0.25rem 1rem;
+}
+
+.value {
+   display: flex;
+   padding: 0.25rem;
+} */
+
+/* 
+
+.tagInner:hover {
+   background: var(--cultured);
+}
+
+.tag {
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   gap: 0.5rem;
+   cursor: pointer;
+   overflow: hidden;
+}
+
+.tagValue {
+   height: 2rem;
+   min-width: 12rem;
+   border-radius: 1rem;
+   text-align: center;
+}
+
+.valueWrapper {
+   position: relative;
+   flex-grow: 1;
+   display: flex;
+}
+
+.value {
+   padding: 0 1rem;
+}
+
+.input {
+   height: 2rem;
+   border: none;
+   border-radius: 1rem;
+   flex-grow: 1;
+   padding: 0 1rem;
+   background: none;
+   background: var(--gainsboro);
+}
+
+.input:focus {
+   outline: none;
+   border-radius: 1rem;
+   background: var(--light-gray);
+}
+
+.asideIn,
+.asideOut {
+   position: absolute;
+   top: 0;
+   right: 0;
+   height: 2rem;
+   min-width: 10rem;
+   background: var(--cadet-blue-crayola);
+   border-radius: 1rem;
+   display: flex;
+   justify-content: center;
+   z-index: 2;
+}
+
+.asideIn:hover {
+   background: var(--bg-checked-in);
+}
+
+.asideIn {
+   animation: slideIn 0.25s forwards;
+}
+
+.asideOut {
+   animation: slideOut 0.25s forwards;
+}
+
+.button {
+   background: none;
+   border: none;
+   cursor: pointer;
+}
+
+@keyframes slideIn {
+   0% {
+      right: -100vw;
+   }
+   100% {
+      right: 0;
+   }
+}
+
+@keyframes slideOut {
+   0% {
+      right: 0;
+   }
+   100% {
+      right: -100vw;
+   }
+} */

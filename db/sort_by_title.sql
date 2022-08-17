@@ -1,0 +1,1 @@
+SELECT * FROM inventory ORDER BY title
