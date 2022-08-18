@@ -1,30 +1,35 @@
-import classes from "./Item.module.css";
-import { ItemProps } from "./itemTypes";
-import { TagObj } from "../tag/tagTypes";
+import classes from "./Card.module.css";
+import { ItemAsProps } from "../item/itemTypes";
 import { v4 as uuidv4 } from "uuid";
 import { Tag } from "../tag/Tag";
+import { useState } from "react";
 import KeyIcon from "@mui/icons-material/Key";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LinkIcon from "@mui/icons-material/Link";
 import DataObjectIcon from "@mui/icons-material/DataObject";
-import IdWrapper from "../card/card-left/IdWrapper";
-import ItemTags from "./item-tags/ItemTags";
-import ItemImages from "./item-images/ItemImages";
+import IdWrapper from "./card-left/IdWrapper";
+import { TagObj } from "../tag/tagTypes";
 
-export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
+export default function Card({ itemObj }: ItemAsProps) {
+   const [expandCard, setExpandCard] = useState(false);
    const tags: { [key: string]: TagObj } = {};
    itemObj.tags.forEach((tag) => {
       const tag_value = tag.tag_value;
       tags[tag_value] = { ...tag };
    });
 
+   const handleItemClick = () => {
+      window.open(`${process.env.REACT_APP_CLIENT_URL}/item/?id=${itemObj.id}`);
+   };
+
    const handleLoveSeatLink = () => {
       window.open(tags.item_link.value);
    };
+
    return (
-      <div className={classes.item}>
-         <div className={classes.itemLeft}>
-            <div className={classes.itemLeftInner}>
+      <div className={classes.card}>
+         <div className={classes.cardLeft}>
+            <div className={classes.cardLeftInner}>
                <div className={classes.titleWrapper}>{itemObj.title.value}</div>
                <div className={classes.thumbnailWrapper}>
                   <img
@@ -73,19 +78,30 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
                      }
                   />
                </div>
-               <div className={classes.itemTagsWrapper}>
-                  <ItemTags tags={tags} />
+            </div>
+         </div>
+         <div className={classes.cardRight}>
+            <div className={classes.cardRightInner}>
+               <div className={classes.skuWrapper}>
+                  <div className={classes.sku}>{itemObj.sku.value}</div>
+               </div>
+               <div className={classes.tagsWrapper}>
+                  {tags["5miles"] && (
+                     <Tag key={uuidv4()} tagObj={tags["5miles"]} label={""} />
+                  )}
+                  <Tag key={uuidv4()} tagObj={tags.notes} label={""} />
+                  <Tag key={uuidv4()} tagObj={tags.category} label={""} />
+                  <Tag key={uuidv4()} tagObj={tags.brand} label={""} />
+                  <Tag key={uuidv4()} tagObj={tags.location} label={""} />
+                  <Tag key={uuidv4()} tagObj={tags.auction_price} label={""} />
+                  <Tag key={uuidv4()} tagObj={tags.retail_price} label={""} />
+                  <Tag key={uuidv4()} tagObj={tags.list_price} label={""} />
                </div>
             </div>
          </div>
-         <div className={classes.itemRightInner}>
-            <div className={classes.itemRightInner}>
-               <Tag key={uuidv4()} tagObj={tags.description} label={""} />
-            </div>
-            <div className={classes.imagesWrapper}>
-               <ItemImages images={itemObj.images} />
-            </div>
-         </div>
+         <button className={classes.footer} onClick={handleItemClick}>
+            Go To Item
+         </button>
       </div>
    );
 }

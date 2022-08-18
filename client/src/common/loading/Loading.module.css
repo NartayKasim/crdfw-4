@@ -1,7 +1,6 @@
 .loading {
    /* position: absolute; */
    position: relative;
-   background: var(--gainsboro);
    display: flex;
    flex-direction: column;
    align-items: center;

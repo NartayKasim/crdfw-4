@@ -2,7 +2,7 @@ import classes from "./Display.module.css";
 import { DisplayProps } from "../inventoryTypes";
 import Loading from "../../../common/loading/Loading";
 import NoResults from "../../../common/no-results/NoResults";
-import Card from "../card/Card";
+import Card from "../../card/Card";
 
 export default function Display({ page, isLoading }: DisplayProps) {
    return (

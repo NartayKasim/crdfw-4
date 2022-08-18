@@ -25,14 +25,11 @@ export default function useInventoryAPI({
    };
 
    const searchItems = (items: ItemObj[], term: string) => {
-      console.log(term);
-
       if (term === "none") return items;
       const formatTerm = term.toLowerCase();
       let inventory: ItemObj[] = items.filter((item) => {
-         console.log(item.id);
-
          const itemTitle = item.title.value.toLowerCase();
+         if (item.sku.value === term) return item;
          if (itemTitle.includes(formatTerm)) return item;
          for (let i = 0; i < item.tags.length; i++) {
             const tag = item.tags[i];

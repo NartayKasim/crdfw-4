@@ -19,3 +19,18 @@ export interface ItemAsProps {
 export interface FullItemObjAsProps {
    itemObj: FullItemObj;
 }
+
+export interface ItemProps {
+   itemObj: FullItemObj;
+   setStatus: (status: "success" | "loading" | "error" | "init") => void;
+   getItem: () => void;
+}
+
+export interface imageObj {
+   id: string;
+   image: string;
+}
+
+export interface ItemImagesProps {
+   images: imageObj[];
+}

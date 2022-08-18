@@ -11,12 +11,13 @@
    --green: rgb(46, 125, 50);
    --yellow: rgb(237, 108, 2);
    --blue: rgb(25, 118, 210);
+   --light-blue: rgb(255, 255, 255);
 
    --navigation: #ced4daff;
    --navigation-link--active: var(--blue);
    --navigation-link--inactive: var(--slate-gray);
 
-   --page: var(--cultured-2);
+   --page: var(--light-gray);
 
    --input: rgb(200, 203, 207);
 

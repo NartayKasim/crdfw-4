@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PageNotFound from "../common/page-not-found/PageNotFound";
 import Inventory from "../features/inventory/Inventory";
-import Item from "../features/item/Item";
+import ItemWrapper from "../features/item/ItemWrapper";
 
 export default function Router() {
    return (
@@ -13,8 +13,8 @@ export default function Router() {
                element={<Inventory />}
             />
          </Route>
-         <Route path="/item" element={<Item />}>
-            <Route path="/item/?id=:id" element={<Item />} />
+         <Route path="/item" element={<ItemWrapper />}>
+            <Route path="/item/?id=:id" element={<ItemWrapper />} />
          </Route>
          <Route path="*" element={<PageNotFound />} />
       </Routes>

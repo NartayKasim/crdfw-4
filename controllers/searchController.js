@@ -16,7 +16,6 @@ module.exports = {
 
    getItem: async (req, res) => {
       const { id } = req.body;
-      console.log(id);
       const db = req.app.get("db");
       const response = await db.get_item(id);
       const item = convertItem(response[0]);

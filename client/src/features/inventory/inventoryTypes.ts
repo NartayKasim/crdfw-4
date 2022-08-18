@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { ItemObj } from "../item/itemTypes";
 
 export type QueryParamsType = string;
@@ -31,4 +32,10 @@ export interface PageBarProps {
    handlePageChange: (param: "up" | "down" | number) => void;
    currentPageIdx: number;
    pageCount: number;
+}
+
+export interface IdWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+   objKey: string;
+   value: string;
+   icon: ReactElement;
 }

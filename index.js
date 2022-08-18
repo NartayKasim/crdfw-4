@@ -27,6 +27,7 @@ massive({
 
 app.get("/api/inventory", searchController.search);
 app.put("/api/inventory/item", searchController.getItem);
+
 app.get("/api/tag/?value_id:value_id", tagController.getTag);
 app.put("/api/tag/update-value", tagController.updateTagValue);
 

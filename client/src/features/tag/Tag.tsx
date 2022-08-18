@@ -4,6 +4,8 @@ import { InnerTagProps, TagProps, TagObj, ExpandedTagObj } from "./tagTypes";
 import { useState } from "react";
 import { AxiosResponse } from "axios";
 import Loading from "../../common/loading/Loading";
+import EditIcon from "@mui/icons-material/Edit";
+import DescriptionTag from "./description-tag/DescriptionTag";
 
 function TagLabel({ children, style }: React.HTMLAttributes<HTMLDivElement>) {
    return (
@@ -47,70 +49,59 @@ function TagInput({
 
 function DefaultTag({
    tag,
+   displayDate,
    toggleEditState,
    handleChange,
    onUpdateValueClick,
    style,
    ...rest
 }: InnerTagProps) {
+   const date = new Date(tag.date.replace(" ", "T"))
+      .toString()
+      .split("GMT-0500")[0];
+
    return (
       <div className={classes.tagWrapper} {...rest}>
-         <label className={classes.label} htmlFor={tag.tag_value || "none"}>
-            <TagLabel style={style}>
-               {tag.tag_value}
-               <span
-                  style={{
-                     color: "var(--slate-gray)",
-                  }}
-               >
-                  {tag.date}
-               </span>
-            </TagLabel>
-
-            {!tag.editState && (
-               <TagValue
-                  className={classes.value}
-                  style={{ color: "var(--gunmetal)", textTransform: "none" }}
-               >
-                  {tag.value}
-               </TagValue>
-            )}
-
-            {tag.editState && (
-               <TagInput
-                  value={tag.value}
-                  onChange={handleChange}
-                  className={classes.input}
-                  name={tag.tag_value}
-                  placeholder={tag.tag_value}
-               />
-            )}
-            {tag.editState && (
-               <div className={classes.footer}>
-                  <button
-                     className={classes.footerButton}
-                     onClick={onUpdateValueClick}
-                  >
-                     Save
-                  </button>
-                  <button
-                     className={classes.footerButton}
-                     onClick={toggleEditState}
-                  >
-                     Cancel
-                  </button>
-               </div>
-            )}
-         </label>
-         <div className={classes.header}>
-            <TagButton
-               className={classes.button}
-               style={{ color: "var(--gunmetal)" }}
-               onClick={toggleEditState}
+         <TagLabel style={style}>
+            {tag.tag_value}
+            <div className={classes.dateWrapper}>
+               {displayDate && <span className={classes.date}>{date}</span>}
+               <EditIcon className={classes.icon} onClick={toggleEditState} />
+            </div>
+         </TagLabel>
+         {!tag.editState && (
+            <TagValue
+               className={classes.value}
+               style={{ color: "var(--gunmetal)", textTransform: "none" }}
             >
-               Edit
-            </TagButton>
-         </div>
+               {tag.value}
+            </TagValue>
+         )}
+         {tag.editState && (
+            <TagInput
+               value={tag.value}
+               onChange={handleChange}
+               className={classes.input}
+               name={tag.tag_value}
+               placeholder={tag.tag_value}
+            />
+         )}
+         {tag.editState && (
+            <div className={classes.footer}>
+               <button
+                  className={classes.footerButton}
+                  onClick={onUpdateValueClick}
+               >
+                  Save
+               </button>
+               <button
+                  className={classes.footerButton}
+                  onClick={toggleEditState}
+               >
+                  Cancel
+               </button>
+            </div>
+         )}
       </div>
    );
 }
@@ -154,14 +145,21 @@ export function Tag({ tagObj }: TagProps) {
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setTag({
          ...tag,
-
          value: e.target.value,
+      });
+   };
+
+   const handleDescriptionChange = (value: string) => {
+      setTag({
+         ...tag,
+         value: value,
       });
    };
 
    const renderSwitch = (tag: ExpandedTagObj) => {
       const defaultProps = {
          tag,
+         displayDate: false,
          toggleEditState,
          handleChange,
          onUpdateValueClick,
@@ -172,6 +170,7 @@ export function Tag({ tagObj }: TagProps) {
             return (
                <DefaultTag
                   {...defaultProps}
+                  displayDate={true}
                   style={{
                      background: "rgba(0, 128, 0, 0.328)",
                      color: "var(--gunmetal)",
@@ -182,6 +181,7 @@ export function Tag({ tagObj }: TagProps) {
             return (
                <DefaultTag
                   {...defaultProps}
+                  displayDate={true}
                   style={{
                      background: "rgba(128, 0, 128, 0.378)",
                      color: "var(--gunmetal)",
@@ -189,7 +189,12 @@ export function Tag({ tagObj }: TagProps) {
                />
             );
          case "description":
-            return null;
+            return (
+               <DescriptionTag
+                  {...defaultProps}
+                  handleDescriptionChange={handleDescriptionChange}
+               />
+            );
          case null:
             return null;
          default:
@@ -197,7 +202,6 @@ export function Tag({ tagObj }: TagProps) {
                <DefaultTag
                   {...defaultProps}
                   style={{
-                     background: "var(--gainsboro)",
                      color: "var(--slate-gray)",
                   }}
                />
