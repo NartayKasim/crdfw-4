@@ -10,6 +10,7 @@ import DataObjectIcon from "@mui/icons-material/DataObject";
 import IdWrapper from "../card/card-left/IdWrapper";
 import ItemTags from "./item-tags/ItemTags";
 import ItemImages from "./item-images/ItemImages";
+import StoreIcon from "@mui/icons-material/Store";
 
 export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
    const tags: { [key: string]: TagObj } = {};
@@ -21,6 +22,7 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
    const handleLoveSeatLink = () => {
       window.open(tags.item_link.value);
    };
+
    return (
       <div className={classes.item}>
          <div className={classes.itemLeft}>
@@ -38,6 +40,13 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
                      objKey={"id"}
                      value={itemObj.id}
                      icon={<KeyIcon color="primary" className={classes.icon} />}
+                  />
+                  <IdWrapper
+                     objKey={"sku"}
+                     value={itemObj.sku.value}
+                     icon={
+                        <StoreIcon color="primary" className={classes.icon} />
+                     }
                   />
                   <IdWrapper
                      objKey={"upc"}

@@ -23,6 +23,10 @@
    border-right: 2px solid var(--gainsboro);
 }
 
+.titleWrapper {
+   font-weight: 600;
+}
+
 .titleWrapper,
 .idsWrapper {
    padding: 0.5rem;
@@ -31,6 +35,12 @@
 .thumbnailWrapper {
    position: relative;
    padding: 0.5rem;
+}
+
+.idsWrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
 }
 
 .itemTagsWrapper {
@@ -47,4 +57,24 @@
    display: flex;
    flex-direction: column;
    gap: 5rem;
+}
+
+@media only screen and (max-width: 925px) {
+   .item {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+   }
+
+   .itemLeftInner {
+      padding-right: 0;
+      border: none;
+      gap: 2.5rem;
+   }
+}
+
+@media only screen and (max-width: 450px) {
+   .thumbnail {
+      width: 100%;
+   }
 }

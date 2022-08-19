@@ -20,9 +20,24 @@
    position: relative;
    display: flex;
    flex-direction: column;
+   justify-content: center;
+   align-items: center;
    gap: 1rem;
 }
 
 .image {
    width: 20rem;
+}
+
+@media only screen and (max-width: 450px) {
+   .imagesWrapper {
+      gap: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 1rem;
+   }
+
+   .image {
+      width: 15rem;
+   }
 }

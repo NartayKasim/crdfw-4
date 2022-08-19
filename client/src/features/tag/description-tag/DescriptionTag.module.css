@@ -42,3 +42,9 @@
 .footerButton:hover {
    background: var(--blue);
 }
+
+@media only screen and (max-width: 925px) {
+   .descriptionValueWrapper {
+      padding-left: 0;
+   }
+}

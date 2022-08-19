@@ -12,15 +12,22 @@ export default function ItemImages({ images }: ItemImagesProps) {
       status: "success",
       images: images,
    });
+
+   const onDeleteImageClick = (idx: number) => {
+      return;
+   };
+
    return (
       <div className={classes.itemImages}>
          <div className={classes.labelWrapper}>
             <TagLabel style={{ color: "var(--slate-gray)" }}>images</TagLabel>
          </div>
          <div className={classes.imagesWrapper}>
-            {images.map((image) => (
+            {images.map((image, idx) => (
                <div className={classes.imageWrapper} key={uuidv4()}>
-                  <div className={classes.imageHeader}></div>
+                  <div className={classes.imageHeader}>
+                     <button onClick={() => onDeleteImageClick(idx)}>X</button>
+                  </div>
                   <img
                      src={image.image}
                      alt="item image"

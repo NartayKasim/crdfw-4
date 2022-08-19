@@ -36,12 +36,13 @@ export default function DescriptionTag({
                styles={{
                   toolbar: {
                      backgroundColor: "var(--gainsboro)",
+                     overflow: "hidden",
                   },
                   root: {
                      backgroundColor: "var(--gainsboro)",
-                     height: "100vh",
-                     overflow: "scroll",
+                     height: "80vh",
                      width: "100%",
+                     overflow: "hidden",
                   },
                }}
                value={tag.value}
