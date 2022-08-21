@@ -27,6 +27,7 @@ export default function ItemWrapper() {
    };
 
    const getItem = async () => {
+      setStatus("loading");
       const response = await axios.put("/api/inventory/item", { id });
       handleResponse(response);
    };

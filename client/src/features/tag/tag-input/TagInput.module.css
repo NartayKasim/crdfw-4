@@ -1,0 +1,6 @@
+.input {
+   width: 100%;
+   border: none;
+   padding: 0.25rem 0.5rem;
+   background: var(--cadet-blue-crayola);
+}

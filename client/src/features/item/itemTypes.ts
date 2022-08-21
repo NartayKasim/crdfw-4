@@ -33,4 +33,5 @@ export interface imageObj {
 
 export interface ItemImagesProps {
    images: imageObj[];
+   id: string;
 }

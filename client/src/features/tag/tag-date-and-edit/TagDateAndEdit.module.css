@@ -1,0 +1,17 @@
+.dateWrapper {
+   display: flex;
+   gap: 2rem;
+   align-items: center;
+}
+
+.date {
+   position: relative;
+}
+
+.icon {
+   cursor: pointer;
+}
+
+.icon:hover {
+   color: var(--blue);
+}

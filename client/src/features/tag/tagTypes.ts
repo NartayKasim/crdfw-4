@@ -1,8 +1,11 @@
+import { ItemObj } from "./../item/itemTypes";
+
 export interface TagObj {
    date: string;
    id: string;
    tag_id: number;
    tag_value: string;
+   value_type: string;
    value: string;
    value_id: number;
 }
@@ -46,4 +49,39 @@ export interface DescriptionInnerTagProps
 
 export interface TagValueProps extends React.HTMLAttributes<HTMLDivElement> {
    tagValue: string;
+}
+
+export interface CreateTagProps {
+   itemObj: ItemObj;
+   getItem: () => void;
+}
+
+export interface TagFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+   onUpdateValueClick: () => void;
+   toggleEditState: () => void;
+   value_type: string;
+   onToggleValueTag: () => void;
+}
+
+export interface TagDateAndEditProps
+   extends React.HTMLAttributes<HTMLDivElement> {
+   toggleEditState: () => void;
+   displayDate: boolean;
+   date: string;
+}
+
+// BEGIN 'CORE', 'ACTIVE', 'DISABLED':
+
+export interface CoreTagProps extends React.HTMLAttributes<HTMLDivElement> {
+   tag: ExpandedTagObj;
+   displayDate: boolean;
+   toggleEditState: () => void;
+   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+   onUpdateValueClick: () => void;
+   handleDescriptionChange: (value: string) => void;
+   onToggleValueTag: () => void;
+}
+
+export interface ActiveTagProps extends CoreTagProps {
+   onToggleValueTag: () => void;
 }

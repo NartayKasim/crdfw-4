@@ -1,0 +1,1 @@
+INSERT INTO values (id, tag_id, value) VALUES ($1, $2, $3);

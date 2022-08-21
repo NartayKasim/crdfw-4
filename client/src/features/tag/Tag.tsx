@@ -1,110 +1,9 @@
-import classes from "./Tag.module.css";
 import axios from "axios";
-import { InnerTagProps, TagProps, TagObj, ExpandedTagObj } from "./tagTypes";
+import { TagProps, TagObj, ExpandedTagObj } from "./tagTypes";
 import { useState } from "react";
 import { AxiosResponse } from "axios";
-import Loading from "../../common/loading/Loading";
-import EditIcon from "@mui/icons-material/Edit";
-import DescriptionTag from "./description-tag/DescriptionTag";
-
-function TagLabel({ children, style }: React.HTMLAttributes<HTMLDivElement>) {
-   return (
-      <div className={classes.tagValue} style={{ ...style }}>
-         {children}
-      </div>
-   );
-}
-
-function TagValue({ children, style }: React.HTMLAttributes<HTMLDivElement>) {
-   return (
-      <div className={classes.tagValue} style={{ ...style }}>
-         {children}
-      </div>
-   );
-}
-
-function TagButton({
-   children,
-   style,
-   ...rest
-}: React.DetailedHTMLProps<
-   React.ButtonHTMLAttributes<HTMLButtonElement>,
-   HTMLButtonElement
->) {
-   return (
-      <button className={classes.tagButton} style={{ ...style }} {...rest}>
-         {children}
-      </button>
-   );
-}
-
-function TagInput({
-   ...rest
-}: React.DetailedHTMLProps<
-   React.InputHTMLAttributes<HTMLInputElement>,
-   HTMLInputElement
->) {
-   return <input className={classes.input} {...rest} />;
-}
-
-function DefaultTag({
-   tag,
-   displayDate,
-   toggleEditState,
-   handleChange,
-   onUpdateValueClick,
-   style,
-   ...rest
-}: InnerTagProps) {
-   const date = new Date(tag.date.replace(" ", "T"))
-      .toString()
-      .split("GMT-0500")[0];
-
-   return (
-      <div className={classes.tagWrapper} {...rest}>
-         <TagLabel style={style}>
-            {tag.tag_value}
-            <div className={classes.dateWrapper}>
-               {displayDate && <span className={classes.date}>{date}</span>}
-               <EditIcon className={classes.icon} onClick={toggleEditState} />
-            </div>
-         </TagLabel>
-         {!tag.editState && (
-            <TagValue
-               className={classes.value}
-               style={{ color: "var(--gunmetal)", textTransform: "none" }}
-            >
-               {tag.value}
-            </TagValue>
-         )}
-         {tag.editState && (
-            <TagInput
-               value={tag.value}
-               onChange={handleChange}
-               className={classes.input}
-               name={tag.tag_value}
-               placeholder={tag.tag_value}
-            />
-         )}
-         {tag.editState && (
-            <div className={classes.footer}>
-               <button
-                  className={classes.footerButton}
-                  onClick={onUpdateValueClick}
-               >
-                  Save
-               </button>
-               <button
-                  className={classes.footerButton}
-                  onClick={toggleEditState}
-               >
-                  Cancel
-               </button>
-            </div>
-         )}
-      </div>
-   );
-}
+import CoreTag from "./core-tag/CoreTag";
+import ActiveTag from "./active-tag/ActiveTag";
 
 export function Tag({ tagObj }: TagProps) {
    const [tag, setTag] = useState({
@@ -135,6 +34,13 @@ export function Tag({ tagObj }: TagProps) {
       else displayError();
    };
 
+   const onToggleValueTag = async () => {
+      toggleEditState();
+      displayLoading();
+      const response = await axios.put("/api/tag/toggle-value-tag", { tag });
+      handleResponse(response);
+   };
+
    const onUpdateValueClick = async () => {
       toggleEditState();
       displayLoading();
@@ -157,55 +63,28 @@ export function Tag({ tagObj }: TagProps) {
    };
 
    const renderSwitch = (tag: ExpandedTagObj) => {
-      const defaultProps = {
+      const coreProps = {
          tag,
          displayDate: false,
          toggleEditState,
          handleChange,
          onUpdateValueClick,
+         handleDescriptionChange,
+         onToggleValueTag,
       };
+      const activeProps = {
+         ...coreProps,
+         displayDate: true,
+      };
+      switch (tag.value_type) {
+         case "active":
+            return <ActiveTag {...activeProps} />;
 
-      switch (tag.tag_value) {
-         case "5miles":
-            return (
-               <DefaultTag
-                  {...defaultProps}
-                  displayDate={true}
-                  style={{
-                     background: "rgba(0, 128, 0, 0.328)",
-                     color: "var(--gunmetal)",
-                  }}
-               />
-            );
-         case "notes":
-            return (
-               <DefaultTag
-                  {...defaultProps}
-                  displayDate={true}
-                  style={{
-                     background: "rgba(128, 0, 128, 0.378)",
-                     color: "var(--gunmetal)",
-                  }}
-               />
-            );
-         case "description":
-            return (
-               <DescriptionTag
-                  {...defaultProps}
-                  handleDescriptionChange={handleDescriptionChange}
-               />
-            );
-         case null:
-            return null;
+         case "disabled":
+            return <CoreTag {...coreProps} />;
+
          default:
-            return (
-               <DefaultTag
-                  {...defaultProps}
-                  style={{
-                     color: "var(--slate-gray)",
-                  }}
-               />
-            );
+            return <CoreTag {...coreProps} />;
       }
    };
 

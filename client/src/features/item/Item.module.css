@@ -4,9 +4,8 @@
    margin: 5rem auto;
    width: min(var(--inner-page-width), 100%);
    display: grid;
-   grid-template-columns: 43% auto;
+   grid-template-columns: 50rem 60rem;
    grid-template-areas: "itemLeft itemRight";
-   gap: 2.5rem;
 }
 
 .itemLeft {
@@ -14,13 +13,12 @@
 }
 
 .itemLeftInner {
+   padding: 3rem;
    position: sticky;
    top: 0;
    display: flex;
    flex-direction: column;
    gap: 5rem;
-   padding-right: 2.5rem;
-   border-right: 2px solid var(--gainsboro);
 }
 
 .titleWrapper {
@@ -53,21 +51,29 @@
 }
 
 .itemRightInner {
+   padding: 3rem;
+   border-left: 0.25rem solid var(--gainsboro);
    position: relative;
    display: flex;
    flex-direction: column;
    gap: 5rem;
 }
 
+@media only screen and (max-width: 1120px) {
+   .item {
+      width: min(90rem, 100%);
+      grid-template-columns: 40rem 45rem;
+      margin: 0 auto;
+   }
+}
+
 @media only screen and (max-width: 925px) {
    .item {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
    }
 
    .itemLeftInner {
-      padding-right: 0;
       border: none;
       gap: 2.5rem;
    }

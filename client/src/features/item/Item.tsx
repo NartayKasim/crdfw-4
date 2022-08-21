@@ -11,6 +11,7 @@ import IdWrapper from "../card/card-left/IdWrapper";
 import ItemTags from "./item-tags/ItemTags";
 import ItemImages from "./item-images/ItemImages";
 import StoreIcon from "@mui/icons-material/Store";
+import CreateTag from "../tag/create-tag/CreateTag";
 
 export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
    const tags: { [key: string]: TagObj } = {};
@@ -88,11 +89,12 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
             </div>
          </div>
          <div className={classes.itemRightInner}>
-            <div className={classes.itemRightInner}>
-               <Tag key={uuidv4()} tagObj={tags.description} label={""} />
+            <div className={classes.createTagWrapper}>
+               <CreateTag itemObj={itemObj} getItem={getItem} />
             </div>
+            <Tag key={uuidv4()} tagObj={tags.description} label={""} />
             <div className={classes.imagesWrapper}>
-               <ItemImages images={itemObj.images} />
+               <ItemImages images={itemObj.images} id={itemObj.id} />
             </div>
          </div>
       </div>

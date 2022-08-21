@@ -2,7 +2,7 @@
    position: relative;
    display: flex;
    flex-direction: column;
-   gap: 1rem;
+   font-size: 1.35rem;
 }
 
 .labelWrapper {
@@ -29,15 +29,96 @@
    width: 20rem;
 }
 
+.addImagesWrapper {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   overflow-wrap: break-word;
+   margin-top: 5rem;
+}
+
+.urlsWrapper {
+   display: flex;
+   flex-direction: column;
+   word-wrap: break-word;
+   gap: 0.5rem;
+}
+
+.urlWrapper {
+   position: relative;
+   display: flex;
+   width: 100%;
+   height: auto;
+   word-wrap: break-word;
+   padding: 0.5rem;
+}
+
+.url {
+   position: relative;
+   /* width: 40rem; */
+   width: 100%;
+   padding: 1rem;
+   border-radius: 0.5rem;
+   word-wrap: break-word;
+}
+
+.addImage {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.addImageLabel {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   padding: 1rem;
+}
+
+.addImageInput {
+   width: 100%;
+   flex-grow: 1;
+   border: none;
+   padding: 0.25rem 0.5rem;
+   background: var(--cadet-blue-crayola);
+}
+
+.addImageButton {
+   width: 100%;
+   background: var(--cadet-blue-crayola);
+   padding: 0.35rem 1rem;
+   border: none;
+   border-radius: 0.25rem;
+   cursor: pointer;
+}
+
+.addImageButton:hover {
+   background: var(--blue);
+}
+
+@media only screen and (max-width: 850px) {
+   .image {
+      width: 16rem;
+   }
+}
+
 @media only screen and (max-width: 450px) {
    .imagesWrapper {
-      gap: 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding: 1rem;
+      background: green;
+      padding: 0;
    }
 
    .image {
-      width: 15rem;
+      width: 10rem;
+   }
+
+   .url,
+   .addImageInput,
+   .addImageButton {
+      width: 30rem;
    }
 }

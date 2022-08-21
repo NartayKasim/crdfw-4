@@ -1,0 +1,1 @@
+UPDATE values SET value_type = 'disabled' WHERE value_id = $1;

@@ -1,10 +1,8 @@
 .tagValue {
    padding: 0.25rem 0.5rem;
    text-transform: uppercase;
+   font-size: 1.35rem;
    font-weight: 600;
-   font-size: 1.3rem;
    display: flex;
    justify-content: space-between;
-   background: var(--gainsboro);
-   color: var(--slate-gray);
 }
