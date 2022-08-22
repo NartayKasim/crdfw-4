@@ -121,11 +121,27 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
                   />
                </TagsWrapper>
             </div>
-            <Tag
-               key={uuidv4()}
-               tagObj={tags.description}
-               getItemObj={getItem}
-            />
+            <div className={classes.itemTagsWrapper}>
+               <TagsWrapper
+                  filterArr={["disabled"]}
+                  tags={itemObj.tags}
+                  getItemObj={getItem}
+               >
+                  <TagLabel>disabled tags</TagLabel>
+                  <Hint
+                     text={
+                        "Disabled tags represent the history of an item. Tags which you have disabled will appear here."
+                     }
+                  />
+               </TagsWrapper>
+            </div>
+            <div className={classes.descriptionWrapper}>
+               <Tag
+                  key={uuidv4()}
+                  tagObj={tags.description}
+                  getItemObj={getItem}
+               />
+            </div>
             <div className={classes.imagesWrapper}>
                <ItemImages images={itemObj.images} id={itemObj.id} />
             </div>

@@ -41,3 +41,9 @@ export interface TagsWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
    tags: TagObj[];
    getItemObj: () => void;
 }
+
+export interface CoreTagsWrapperProps
+   extends React.HTMLAttributes<HTMLDivElement> {
+   tags: TagObj[];
+   getItemObj: () => void;
+}

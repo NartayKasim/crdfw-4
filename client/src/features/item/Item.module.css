@@ -59,6 +59,13 @@
    gap: 3rem;
 }
 
+.createTagWrapper,
+.itemTagsWrapper,
+.imagesWrapper,
+.descriptionWrapper {
+   position: relative;
+}
+
 @media only screen and (max-width: 1120px) {
    .item {
       width: min(90rem, 100%);

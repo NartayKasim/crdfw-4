@@ -120,48 +120,6 @@ export default function Card({ itemObj }: ItemAsProps) {
                      tags={itemState.item.tags}
                      getItemObj={getShortItem}
                   ></TagsWrapper>
-                  {/* {tags["5miles"] && (
-                     <Tag
-                        key={uuidv4()}
-                        tagObj={tags["5miles"]}
-                        getItemObj={getShortItem}
-                     />
-                  )}
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.notes}
-                     getItemObj={getShortItem}
-                  />
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.category}
-                     getItemObj={getShortItem}
-                  />
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.brand}
-                     getItemObj={getShortItem}
-                  />
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.location}
-                     getItemObj={getShortItem}
-                  />
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.auction_price}
-                     getItemObj={getShortItem}
-                  />
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.retail_price}
-                     getItemObj={getShortItem}
-                  />
-                  <Tag
-                     key={uuidv4()}
-                     tagObj={tags.list_price}
-                     getItemObj={getShortItem}
-                  /> */}
                </div>
             </div>
          </div>

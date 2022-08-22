@@ -6,7 +6,7 @@ export default function TagValue({
 }: React.HTMLAttributes<HTMLDivElement>) {
    return (
       <div className={classes.tagValue} style={{ ...style }}>
-         {children}
+         {children || "n/a"}
       </div>
    );
 }

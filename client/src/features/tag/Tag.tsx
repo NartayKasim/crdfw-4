@@ -37,9 +37,8 @@ export function Tag({ tagObj, getItemObj }: TagProps) {
    const onToggleValueTag = async () => {
       toggleEditState();
       displayLoading();
-      const response = await axios.put("/api/tag/toggle-value-tag", { tag });
+      await axios.put("/api/tag/toggle-value-tag", { tag });
       getItemObj();
-      // handleResponse(response);
    };
 
    const onUpdateValueClick = async () => {

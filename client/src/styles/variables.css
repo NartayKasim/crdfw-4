@@ -13,7 +13,8 @@
    --blue: rgb(25, 118, 210);
    --light-blue: rgb(255, 255, 255);
 
-   --navigation: #ced4daff;
+   /* --navigation: #ced4daff; */
+   /* --navigation: rgb(191, 199, 211); */
    --navigation-link--active: var(--blue);
    --navigation-link--inactive: var(--slate-gray);
 

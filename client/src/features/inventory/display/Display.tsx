@@ -7,7 +7,7 @@ import Card from "../../card/Card";
 export default function Display({ page, isLoading }: DisplayProps) {
    return (
       <div className={classes.display}>
-         {!page.length && <NoResults />}
+         {!page.length && !isLoading && <NoResults />}
          {isLoading && <Loading />}
          {page.length > 0 &&
             !isLoading &&
