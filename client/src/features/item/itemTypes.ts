@@ -35,3 +35,9 @@ export interface ItemImagesProps {
    images: imageObj[];
    id: string;
 }
+
+export interface TagsWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+   filterArr: string[];
+   tags: TagObj[];
+   getItemObj: () => void;
+}

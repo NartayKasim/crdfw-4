@@ -16,6 +16,7 @@ export default function CoreTag({
    onUpdateValueClick,
    handleDescriptionChange,
    onToggleValueTag,
+   onDeleteTagClick,
    style,
    ...rest
 }: CoreTagProps) {
@@ -59,6 +60,7 @@ export default function CoreTag({
                      onUpdateValueClick={onUpdateValueClick}
                      toggleEditState={toggleEditState}
                      onToggleValueTag={onToggleValueTag}
+                     onDeleteTagClick={onDeleteTagClick}
                      value_type={tag.value_type}
                   />
                </>

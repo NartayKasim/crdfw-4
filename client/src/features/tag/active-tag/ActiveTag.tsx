@@ -15,6 +15,7 @@ export default function ActiveTag({
    onUpdateValueClick,
    handleDescriptionChange,
    onToggleValueTag,
+   onDeleteTagClick,
    style,
    ...rest
 }: ActiveTagProps) {
@@ -61,6 +62,7 @@ export default function ActiveTag({
                      toggleEditState={toggleEditState}
                      onToggleValueTag={onToggleValueTag}
                      value_type={tag.value_type}
+                     onDeleteTagClick={onDeleteTagClick}
                   />
                </>
             )}
@@ -102,6 +104,7 @@ export default function ActiveTag({
                      toggleEditState={toggleEditState}
                      onToggleValueTag={onToggleValueTag}
                      value_type={tag.value_type}
+                     onDeleteTagClick={onDeleteTagClick}
                   />
                </>
             )}

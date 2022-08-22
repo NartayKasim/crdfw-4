@@ -25,9 +25,10 @@ module.exports = {
    },
 
    createTag: async (req, res) => {
-      const { id, tag_id, value } = req.body;
+      const { id, tag_id, value, value_type } = req.body;
       const db = req.app.get("db").tag;
-      await db.create_tag([id, tag_id, value]);
+      await db.create_tag([id, tag_id, value, value_type]);
+      res.sendStatus(200);
    },
 
    toggleValueTag: async (req, res) => {
@@ -39,5 +40,13 @@ module.exports = {
          await db.enable_value_type([value_id]);
       const response = await db.get_tag([value_id]);
       res.status(200).send(response[0]);
+   },
+
+   deleteTag: async (req, res) => {
+      const { tag } = req.body;
+      const { value_id } = tag;
+      const db = req.app.get("db").tag;
+      await db.delete_tag([value_id]);
+      res.sendStatus(200);
    },
 };

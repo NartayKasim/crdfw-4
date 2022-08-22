@@ -8,10 +8,12 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import LinkIcon from "@mui/icons-material/Link";
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import IdWrapper from "../card/card-left/IdWrapper";
-import ItemTags from "./item-tags/ItemTags";
 import ItemImages from "./item-images/ItemImages";
 import StoreIcon from "@mui/icons-material/Store";
 import CreateTag from "../tag/create-tag/CreateTag";
+import TagsWrapper from "./tags-wrapper/TagsWrapper";
+import TagLabel from "../tag/tag-label/TagLabel";
+import Hint from "../../common/hint/Hint";
 
 export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
    const tags: { [key: string]: TagObj } = {};
@@ -28,7 +30,9 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
       <div className={classes.item}>
          <div className={classes.itemLeft}>
             <div className={classes.itemLeftInner}>
-               <div className={classes.titleWrapper}>{itemObj.title.value}</div>
+               <div className={classes.titleWrapper}>
+                  {itemObj.title.value}{" "}
+               </div>
                <div className={classes.thumbnailWrapper}>
                   <img
                      src={tags.thumbnail.value}
@@ -84,7 +88,18 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
                   />
                </div>
                <div className={classes.itemTagsWrapper}>
-                  <ItemTags tags={tags} />
+                  <TagsWrapper
+                     filterArr={["active"]}
+                     tags={itemObj.tags}
+                     getItemObj={getItem}
+                  >
+                     <TagLabel>active tags</TagLabel>
+                     <Hint
+                        text={
+                           "Active tags represent the most up to date state of an item."
+                        }
+                     />
+                  </TagsWrapper>
                </div>
             </div>
          </div>
@@ -92,7 +107,25 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
             <div className={classes.createTagWrapper}>
                <CreateTag itemObj={itemObj} getItem={getItem} />
             </div>
-            <Tag key={uuidv4()} tagObj={tags.description} label={""} />
+            <div className={classes.itemTagsWrapper}>
+               <TagsWrapper
+                  filterArr={["core"]}
+                  tags={itemObj.tags}
+                  getItemObj={getItem}
+               >
+                  <TagLabel>core tags</TagLabel>
+                  <Hint
+                     text={
+                        "Core tags contain item details and other information."
+                     }
+                  />
+               </TagsWrapper>
+            </div>
+            <Tag
+               key={uuidv4()}
+               tagObj={tags.description}
+               getItemObj={getItem}
+            />
             <div className={classes.imagesWrapper}>
                <ItemImages images={itemObj.images} id={itemObj.id} />
             </div>

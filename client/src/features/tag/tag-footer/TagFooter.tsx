@@ -6,12 +6,16 @@ export default function TagFooter({
    toggleEditState,
    value_type,
    onToggleValueTag,
+   onDeleteTagClick,
    ...rest
 }: TagFooterProps) {
    return (
       <div className={classes.footer}>
+         <button className={classes.footerButton} onClick={onDeleteTagClick}>
+            Delete Tag
+         </button>
          <button className={classes.footerButton} onClick={onToggleValueTag}>
-            {value_type === "active " ? "Disable Tag" : "Activate Tag"}
+            {value_type === "active" ? "Disable Tag" : "Activate Tag"}
          </button>
          <button className={classes.footerButton} onClick={onUpdateValueClick}>
             Save

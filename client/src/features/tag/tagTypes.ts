@@ -27,7 +27,7 @@ export interface TagsObj {
 
 export interface TagProps {
    tagObj: TagObj;
-   label: string;
+   getItemObj: () => void;
 }
 
 export interface InnerTagProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -59,8 +59,9 @@ export interface CreateTagProps {
 export interface TagFooterProps extends React.HTMLAttributes<HTMLDivElement> {
    onUpdateValueClick: () => void;
    toggleEditState: () => void;
-   value_type: string;
    onToggleValueTag: () => void;
+   onDeleteTagClick: () => void;
+   value_type: string;
 }
 
 export interface TagDateAndEditProps
@@ -80,6 +81,7 @@ export interface CoreTagProps extends React.HTMLAttributes<HTMLDivElement> {
    onUpdateValueClick: () => void;
    handleDescriptionChange: (value: string) => void;
    onToggleValueTag: () => void;
+   onDeleteTagClick: () => void;
 }
 
 export interface ActiveTagProps extends CoreTagProps {

@@ -1,0 +1,1 @@
+SELECT * FROM short_inventory WHERE id = $1;

@@ -20,7 +20,8 @@ export default function ItemTags({ tags }: TagsObj) {
          {TAG_ORDER.map((tag_value) => {
             if (tags[tag_value]) {
                return (
-                  <Tag key={uuidv4()} tagObj={tags[tag_value]} label={""} />
+                  // <Tag key={uuidv4()} tagObj={tags[tag_value]}  />
+                  <div></div>
                );
             }
          })}

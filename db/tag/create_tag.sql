@@ -1,1 +1,1 @@
-INSERT INTO values (id, tag_id, value) VALUES ($1, $2, $3);
+INSERT INTO values (id, tag_id, value, value_type) VALUES ($1, $2, $3, $4);

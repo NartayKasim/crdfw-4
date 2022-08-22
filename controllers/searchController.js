@@ -21,4 +21,12 @@ module.exports = {
       const item = convertItem(response[0]);
       res.status(200).send(item);
    },
+
+   getShortItem: async (req, res) => {
+      const { itemObj } = req.body;
+      const db = req.app.get("db");
+      const response = await db.get_short_item([itemObj.id]);
+      const item = response[0];
+      res.status(200).send(item);
+   },
 };

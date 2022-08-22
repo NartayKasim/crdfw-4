@@ -5,7 +5,7 @@ import { AxiosResponse } from "axios";
 import CoreTag from "./core-tag/CoreTag";
 import ActiveTag from "./active-tag/ActiveTag";
 
-export function Tag({ tagObj }: TagProps) {
+export function Tag({ tagObj, getItemObj }: TagProps) {
    const [tag, setTag] = useState({
       editState: false,
       loading: false,
@@ -38,7 +38,8 @@ export function Tag({ tagObj }: TagProps) {
       toggleEditState();
       displayLoading();
       const response = await axios.put("/api/tag/toggle-value-tag", { tag });
-      handleResponse(response);
+      getItemObj();
+      // handleResponse(response);
    };
 
    const onUpdateValueClick = async () => {
@@ -46,6 +47,13 @@ export function Tag({ tagObj }: TagProps) {
       displayLoading();
       const response = await axios.put("/api/tag/update-value", { tag });
       handleResponse(response);
+   };
+
+   const onDeleteTagClick = async () => {
+      toggleEditState();
+      displayLoading();
+      await axios.put("/api/tag/delete-tag", { tag });
+      getItemObj();
    };
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +79,7 @@ export function Tag({ tagObj }: TagProps) {
          onUpdateValueClick,
          handleDescriptionChange,
          onToggleValueTag,
+         onDeleteTagClick,
       };
       const activeProps = {
          ...coreProps,

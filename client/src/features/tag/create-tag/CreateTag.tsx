@@ -19,14 +19,31 @@ export default function CreateTag({ itemObj, getItem }: CreateTagProps) {
    const [tagContent, setTagContent] = useState("");
 
    const handleCreateTag = async () => {
+      const activeTags = [
+         "notes",
+         "facebook",
+         "5miles",
+         "ebay",
+         "offerup",
+         "nextdoor",
+         "poshmark",
+         "mercari",
+         "in service",
+         "ready to post",
+         "review",
+         "sold",
+      ];
       if (tagContent.length === 0) return;
       const tagObj = {
          id: itemObj.id,
          tag_id: selectedTag?.tag_id,
          value: tagContent,
+         value_type: activeTags.includes(selectedTag.tag_value)
+            ? "active"
+            : "core",
       };
       await axios.post("/api/tag/create-tag", tagObj);
-      getItem();
+      return getItem();
    };
 
    const handleSelectTag = (value: string) => {
@@ -110,30 +127,6 @@ export default function CreateTag({ itemObj, getItem }: CreateTagProps) {
                         {tag.tag_value}
                      </option>
                   ))}
-
-                  {/* {availableTags.map((tag) => {
-                     if (tag.tag_value === "notes")
-                        return (
-                           <option
-                              selected
-                              key={tag.tag_id}
-                              className={classes.option}
-                              value={tag.tag_value}
-                           >
-                              {tag.tag_value}
-                           </option>
-                        );
-                     else
-                        return (
-                           <option
-                              key={tag.tag_id}
-                              className={classes.option}
-                              value={tag.tag_value}
-                           >
-                              {tag.tag_value}
-                           </option>
-                        );
-                  })} */}
                </select>
             </label>
             <label className={classes.tagSelectLabel}>
