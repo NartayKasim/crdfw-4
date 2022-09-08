@@ -22,92 +22,147 @@ export default function ActiveTag({
    const colors = {
       "5miles": {
          background: "rgba(0, 128, 0, 0.328)",
+         borderRadius: "0.25rem",
          color: "var(--gunmetal)",
       },
 
-      description: {
+      default: {
          background: "rgba(128, 0, 128, 0.378)",
+         borderRadius: "0.25rem",
          color: "var(--gunmetal)",
+      },
+
+      facebook: {
+         background: "rgb(66, 103, 178)",
+         borderRadius: "0.25rem",
+         color: "var(--cultured)",
       },
    };
 
-   if (tag.tag_value === "5miles")
-      return (
-         <div className={classes.tagWrapper} {...rest}>
-            <TagLabel style={{ ...colors["5miles"] }}>
-               {tag.tag_value}
-               <TagDateAndEdit
-                  toggleEditState={toggleEditState}
-                  displayDate={displayDate}
-                  date={tag.date}
-               />
-            </TagLabel>
-            {!tag.editState ? (
-               <TagValue
-                  className={classes.value}
-                  style={{ color: "var(--gunmetal)", textTransform: "none" }}
-               >
-                  {tag.value}
-               </TagValue>
-            ) : (
-               <>
-                  <TagInput
-                     value={tag.value}
-                     onChange={handleChange}
-                     name={tag.tag_value}
-                     placeholder={tag.tag_value}
-                  />
-                  <TagFooter
-                     onUpdateValueClick={onUpdateValueClick}
-                     toggleEditState={toggleEditState}
-                     onToggleValueTag={onToggleValueTag}
-                     value_type={tag.value_type}
-                     onDeleteTagClick={onDeleteTagClick}
-                  />
-               </>
-            )}
-         </div>
-      );
-   else
-      return (
-         <div className={classes.tagWrapper} {...rest}>
-            <TagLabel
-               style={{
-                  background: "rgba(128, 0, 128, 0.278)",
-                  color: "var(--gunmetal)",
-               }}
-            >
-               {tag.tag_value}
-               <TagDateAndEdit
-                  toggleEditState={toggleEditState}
-                  displayDate={displayDate}
-                  date={tag.date}
-               />
-            </TagLabel>
-            {!tag.editState ? (
-               <TagValue
-                  className={classes.value}
-                  style={{ color: "var(--gunmetal)", textTransform: "none" }}
-               >
-                  {tag.value}
-               </TagValue>
-            ) : (
-               <>
-                  <TagInput
-                     value={tag.value}
-                     onChange={handleChange}
-                     name={tag.tag_value}
-                     placeholder={tag.tag_value}
-                  />
-                  <TagFooter
-                     onUpdateValueClick={onUpdateValueClick}
-                     toggleEditState={toggleEditState}
-                     onToggleValueTag={onToggleValueTag}
-                     value_type={tag.value_type}
-                     onDeleteTagClick={onDeleteTagClick}
-                  />
-               </>
-            )}
-         </div>
-      );
+   const renderSwitch = () => {
+      switch (tag.tag_value) {
+         case "5miles":
+            return (
+               <div className={classes.tagWrapper} {...rest}>
+                  <TagLabel style={{ ...colors["5miles"] }}>
+                     {tag.tag_value}
+                     <TagDateAndEdit
+                        toggleEditState={toggleEditState}
+                        displayDate={displayDate}
+                        date={tag.date}
+                     />
+                  </TagLabel>
+                  {!tag.editState ? (
+                     <TagValue
+                        className={classes.value}
+                        style={{
+                           color: "var(--gunmetal)",
+                           textTransform: "none",
+                        }}
+                     >
+                        {tag.value}
+                     </TagValue>
+                  ) : (
+                     <>
+                        <TagInput
+                           value={tag.value}
+                           onChange={handleChange}
+                           name={tag.tag_value}
+                           placeholder={tag.tag_value}
+                        />
+                        <TagFooter
+                           onUpdateValueClick={onUpdateValueClick}
+                           toggleEditState={toggleEditState}
+                           onToggleValueTag={onToggleValueTag}
+                           value_type={tag.value_type}
+                           onDeleteTagClick={onDeleteTagClick}
+                        />
+                     </>
+                  )}
+               </div>
+            );
+         case "facebook":
+            return (
+               <div className={classes.tagWrapper} {...rest}>
+                  <TagLabel style={{ ...colors["facebook"] }}>
+                     {tag.tag_value}
+                     <TagDateAndEdit
+                        toggleEditState={toggleEditState}
+                        displayDate={displayDate}
+                        date={tag.date}
+                     />
+                  </TagLabel>
+                  {!tag.editState ? (
+                     <TagValue
+                        className={classes.value}
+                        style={{
+                           color: "var(--gunmetal)",
+                           textTransform: "none",
+                        }}
+                     >
+                        {tag.value}
+                     </TagValue>
+                  ) : (
+                     <>
+                        <TagInput
+                           value={tag.value}
+                           onChange={handleChange}
+                           name={tag.tag_value}
+                           placeholder={tag.tag_value}
+                        />
+                        <TagFooter
+                           onUpdateValueClick={onUpdateValueClick}
+                           toggleEditState={toggleEditState}
+                           onToggleValueTag={onToggleValueTag}
+                           value_type={tag.value_type}
+                           onDeleteTagClick={onDeleteTagClick}
+                        />
+                     </>
+                  )}
+               </div>
+            );
+         default:
+            return (
+               <div className={classes.tagWrapper} {...rest}>
+                  <TagLabel style={{ ...colors["default"] }}>
+                     {tag.tag_value}
+                     <TagDateAndEdit
+                        toggleEditState={toggleEditState}
+                        displayDate={displayDate}
+                        date={tag.date}
+                     />
+                  </TagLabel>
+                  {!tag.editState ? (
+                     <TagValue
+                        className={classes.value}
+                        style={{
+                           color: "var(--gunmetal)",
+                           textTransform: "none",
+                        }}
+                     >
+                        {tag.value}
+                     </TagValue>
+                  ) : (
+                     <>
+                        <TagInput
+                           value={tag.value}
+                           onChange={handleChange}
+                           name={tag.tag_value}
+                           placeholder={tag.tag_value}
+                        />
+                        <TagFooter
+                           onUpdateValueClick={onUpdateValueClick}
+                           toggleEditState={toggleEditState}
+                           onToggleValueTag={onToggleValueTag}
+                           value_type={tag.value_type}
+                           onDeleteTagClick={onDeleteTagClick}
+                        />
+                     </>
+                  )}
+               </div>
+            );
+      }
+   };
+
+   return renderSwitch();
 }

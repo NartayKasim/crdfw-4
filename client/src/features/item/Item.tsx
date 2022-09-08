@@ -30,9 +30,7 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
       <div className={classes.item}>
          <div className={classes.itemLeft}>
             <div className={classes.itemLeftInner}>
-               <div className={classes.titleWrapper}>
-                  {itemObj.title.value}{" "}
-               </div>
+               <div className={classes.titleWrapper}>{itemObj.title.value}</div>
                <div className={classes.thumbnailWrapper}>
                   <img
                      src={tags.thumbnail.value}

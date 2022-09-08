@@ -13,13 +13,7 @@ export default function TagsWrapper({
    const activeTags: TagObj[] = [];
    const coreTags: { [key: string]: TagObj } = {};
    const disabledTags: TagObj[] = [];
-   const forbiddenTags = [
-      "description",
-      "item_link",
-      "thumbnail",
-      "sale_date",
-      "sale_price",
-   ];
+
    const coreTagsOrder = [
       "location",
       "brand",

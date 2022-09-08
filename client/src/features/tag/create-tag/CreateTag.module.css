@@ -13,6 +13,25 @@
    gap: 1rem;
 }
 
+.createTagButtonWrapper {
+   width: 100%;
+   display: flex;
+}
+
+.createTagButton {
+   width: 100%;
+   background: var(--cadet-blue-crayola);
+   padding: 0.35rem 1rem;
+   border: none;
+   border-radius: 0.25rem;
+   cursor: pointer;
+}
+
+.createTagButton:hover {
+   background: var(--blue);
+   color: var(--cultured);
+}
+
 .tagSelectLabel {
    gap: 1rem;
    font-weight: 600;
@@ -47,6 +66,7 @@
 .submitWrapper {
    display: flex;
    justify-content: flex-end;
+   gap: 2rem;
 }
 
 .submit {
@@ -59,4 +79,5 @@
 
 .submit:hover {
    background: var(--blue);
+   color: var(--cultured);
 }

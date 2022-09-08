@@ -87,10 +87,8 @@ export function Tag({ tagObj, getItemObj }: TagProps) {
       switch (tag.value_type) {
          case "active":
             return <ActiveTag {...activeProps} />;
-
          case "disabled":
             return <CoreTag {...coreProps} />;
-
          default:
             return <CoreTag {...coreProps} />;
       }

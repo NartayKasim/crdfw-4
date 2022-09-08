@@ -17,6 +17,7 @@ export default function CreateTag({ itemObj, getItem }: CreateTagProps) {
       tag_value: string;
    }>({ tag_id: 4, tag_value: "notes" });
    const [tagContent, setTagContent] = useState("");
+   const [displayCreateTag, setDisplayCreateTag] = useState(false);
 
    const handleCreateTag = async () => {
       const activeTags = [
@@ -111,39 +112,62 @@ export default function CreateTag({ itemObj, getItem }: CreateTagProps) {
             Create New Tag
          </TagLabel>
          <div className={classes.createTagInner}>
-            <label className={classes.tagSelectLabel}>
-               Select Tag:
-               <select
-                  value={selectedTag.tag_value}
-                  className={classes.tagSelect}
-                  onChange={(e) => handleSelectTag(e.target.value)}
-               >
-                  {availableTags.map((tag) => (
-                     <option
-                        key={tag.tag_id}
-                        className={classes.option}
-                        value={tag.tag_value}
+            {!displayCreateTag && (
+               <div className={classes.createTagButtonWrapper}>
+                  <button
+                     className={classes.createTagButton}
+                     onClick={() => setDisplayCreateTag(true)}
+                  >
+                     Create a New Tag
+                  </button>
+               </div>
+            )}
+            {displayCreateTag && (
+               <>
+                  <label className={classes.tagSelectLabel}>
+                     Select Tag:
+                     <select
+                        value={selectedTag.tag_value}
+                        className={classes.tagSelect}
+                        onChange={(e) => handleSelectTag(e.target.value)}
                      >
-                        {tag.tag_value}
-                     </option>
-                  ))}
-               </select>
-            </label>
-            <label className={classes.tagSelectLabel}>
-               Tag Content:
-               <textarea
-                  placeholder="Tag content..."
-                  name="tag-content"
-                  id="tag-content"
-                  className={classes.textArea}
-                  onChange={(e) => setTagContent(e.target.value)}
-               />
-            </label>
-            <div className={classes.submitWrapper}>
-               <button onClick={handleCreateTag} className={classes.submit}>
-                  Create Tag
-               </button>
-            </div>
+                        {availableTags.map((tag) => (
+                           <option
+                              key={tag.tag_id}
+                              className={classes.option}
+                              value={tag.tag_value}
+                           >
+                              {tag.tag_value}
+                           </option>
+                        ))}
+                     </select>
+                  </label>
+                  <label className={classes.tagSelectLabel}>
+                     Tag Content:
+                     <textarea
+                        placeholder="Tag content..."
+                        name="tag-content"
+                        id="tag-content"
+                        className={classes.textArea}
+                        onChange={(e) => setTagContent(e.target.value)}
+                     />
+                  </label>
+                  <div className={classes.submitWrapper}>
+                     <button
+                        onClick={() => setDisplayCreateTag(false)}
+                        className={classes.submit}
+                     >
+                        Cancel
+                     </button>
+                     <button
+                        onClick={handleCreateTag}
+                        className={classes.submit}
+                     >
+                        Create Tag
+                     </button>
+                  </div>
+               </>
+            )}
          </div>
       </div>
    );

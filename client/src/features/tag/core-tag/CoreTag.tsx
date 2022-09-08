@@ -33,7 +33,7 @@ export default function CoreTag({
    else
       return (
          <div className={classes.tagWrapper} {...rest}>
-            <TagLabel style={style}>
+            <TagLabel style={{ borderRadius: "0.25rem", ...style }}>
                {tag.tag_value}
                <TagDateAndEdit
                   toggleEditState={toggleEditState}

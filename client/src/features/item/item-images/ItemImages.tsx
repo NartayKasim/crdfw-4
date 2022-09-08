@@ -65,14 +65,19 @@ export default function ItemImages({ images, id }: ItemImagesProps) {
          <div className={classes.imagesWrapper}>
             {imageState.images.map((image, idx) => (
                <div className={classes.imageWrapper} key={uuidv4()}>
-                  <div className={classes.imageHeader}>
-                     <button onClick={() => onDeleteImageClick(idx)}>X</button>
-                  </div>
                   <img
                      src={image.image}
                      alt="item image"
                      className={classes.image}
                   />
+                  <div className={classes.imageHeader}>
+                     <button
+                        onClick={() => onDeleteImageClick(idx)}
+                        className={classes.addImageButton}
+                     >
+                        Delete
+                     </button>
+                  </div>
                </div>
             ))}
          </div>

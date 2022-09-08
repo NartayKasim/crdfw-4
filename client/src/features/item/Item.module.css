@@ -4,7 +4,7 @@
    margin: 5rem auto;
    width: min(var(--inner-page-width), 100%);
    display: grid;
-   grid-template-columns: 50rem 60rem;
+   grid-template-columns: 1fr 60rem;
    grid-template-areas: "itemLeft itemRight";
 }
 
@@ -27,7 +27,7 @@
 
 .titleWrapper,
 .idsWrapper {
-   padding: 0.5rem;
+   padding: 0 0.5rem;
 }
 
 .thumbnailWrapper {
@@ -68,8 +68,8 @@
 
 @media only screen and (max-width: 1120px) {
    .item {
-      width: min(90rem, 100%);
-      grid-template-columns: 40rem 45rem;
+      /* width: min(90rem, 100%); */
+      grid-template-columns: 45% 55%;
       margin: 0 auto;
    }
 }
