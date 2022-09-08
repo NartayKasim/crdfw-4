@@ -64,7 +64,6 @@
 
 .url {
    position: relative;
-   /* width: 40rem; */
    width: 100%;
    padding: 1rem;
    border-radius: 0.5rem;
@@ -115,18 +114,28 @@
 @media only screen and (max-width: 450px) {
    .imagesWrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: green;
+      grid-template-columns: 1fr;
       padding: 1rem 0;
    }
 
+   .imageWrapper {
+      padding-left: 0;
+   }
+
    .image {
-      width: 10rem;
+      width: 100%;
+   }
+
+   .imageHeader {
+      justify-content: center;
    }
 
    .url,
-   .addImageInput,
-   .addImageButton {
+   .addImageInput {
       width: 30rem;
+   }
+
+   .addImageButton {
+      width: 100%;
    }
 }

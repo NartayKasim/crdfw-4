@@ -52,6 +52,7 @@
 
 .itemRightInner {
    padding: 3rem;
+   padding-right: 0;
    border-left: 0.25rem solid var(--gainsboro);
    position: relative;
    display: flex;
@@ -68,9 +69,12 @@
 
 @media only screen and (max-width: 1120px) {
    .item {
-      /* width: min(90rem, 100%); */
       grid-template-columns: 45% 55%;
       margin: 0 auto;
+   }
+
+   .itemRightInner {
+      padding-right: 1.5rem;
    }
 }
 
@@ -83,6 +87,10 @@
    .itemLeftInner {
       border: none;
       gap: 2.5rem;
+   }
+
+   .itemRightInner {
+      padding-right: 3rem;
    }
 }
 

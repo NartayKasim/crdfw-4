@@ -91,7 +91,15 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
                      tags={itemObj.tags}
                      getItemObj={getItem}
                   >
-                     <TagLabel>active tags</TagLabel>
+                     <TagLabel
+                        style={{
+                           background: "var(--dark-blue)",
+                           color: "var(--blue)",
+                           borderRadius: "0.25rem",
+                        }}
+                     >
+                        active tags
+                     </TagLabel>
                      <Hint
                         text={
                            "Active tags represent the most up to date state of an item."
@@ -107,28 +115,44 @@ export default function Item({ itemObj, setStatus, getItem }: ItemProps) {
             </div>
             <div className={classes.itemTagsWrapper}>
                <TagsWrapper
-                  filterArr={["core"]}
+                  filterArr={["disabled"]}
                   tags={itemObj.tags}
                   getItemObj={getItem}
                >
-                  <TagLabel>core tags</TagLabel>
+                  <TagLabel
+                     style={{
+                        background: "var(--dark-blue)",
+                        color: "var(--blue)",
+                        borderRadius: "0.25rem",
+                     }}
+                  >
+                     disabled tags
+                  </TagLabel>
                   <Hint
                      text={
-                        "Core tags contain item details and other information."
+                        "Disabled tags represent the history of an item. Tags which you have disabled will appear here."
                      }
                   />
                </TagsWrapper>
             </div>
             <div className={classes.itemTagsWrapper}>
                <TagsWrapper
-                  filterArr={["disabled"]}
+                  filterArr={["core"]}
                   tags={itemObj.tags}
                   getItemObj={getItem}
                >
-                  <TagLabel>disabled tags</TagLabel>
+                  <TagLabel
+                     style={{
+                        background: "var(--dark-blue)",
+                        color: "var(--blue)",
+                        borderRadius: "0.25rem",
+                     }}
+                  >
+                     core tags
+                  </TagLabel>
                   <Hint
                      text={
-                        "Disabled tags represent the history of an item. Tags which you have disabled will appear here."
+                        "Core tags contain item details and other information."
                      }
                   />
                </TagsWrapper>

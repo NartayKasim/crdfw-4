@@ -105,8 +105,9 @@ export default function CreateTag({ itemObj, getItem }: CreateTagProps) {
       <div className={classes.createTag}>
          <TagLabel
             style={{
-               background: "var(--gainsboro)",
-               color: "var(--slate-gray)",
+               background: "var(--dark-blue)",
+               color: "var(--blue)",
+               borderRadius: "0.25rem",
             }}
          >
             Create New Tag

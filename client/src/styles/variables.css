@@ -11,7 +11,7 @@
    --green: var(--bg-checked-in);
    --yellow: rgb(237, 108, 2);
    --blue: rgb(25, 118, 210);
-   --light-blue: rgb(255, 255, 255);
+   --dark-blue: var(--gainsboro);
 
    /* --navigation: #ced4daff; */
    /* --navigation: rgb(191, 199, 211); */
