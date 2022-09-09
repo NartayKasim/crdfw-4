@@ -7,12 +7,15 @@ export default function TagDateAndEdit({
    displayDate,
    date,
 }: TagDateAndEditProps) {
-   const formatDate = new Date(date.replace(" ", "T"))
-      .toString()
-      .split("GMT-0500")[0];
+   const formatDate = () => {
+      return new Date(date.replace(" ", "T")).toString().split("GMT-0500")[0];
+   };
+
    return (
       <div className={classes.dateWrapper}>
-         {displayDate && <span className={classes.date}>{formatDate}</span>}
+         {displayDate && (
+            <span className={classes.date}>{date && formatDate()}</span>
+         )}
          <EditIcon className={classes.icon} onClick={toggleEditState} />
       </div>
    );
