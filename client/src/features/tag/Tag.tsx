@@ -72,7 +72,7 @@ export function Tag({ tagObj, getItemObj }: TagProps) {
    const renderSwitch = (tag: ExpandedTagObj) => {
       const coreProps = {
          tag,
-         displayDate: false,
+         displayDate: true,
          toggleEditState,
          handleChange,
          onUpdateValueClick,

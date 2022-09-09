@@ -12,6 +12,9 @@
    --yellow: rgb(237, 108, 2);
    --blue: rgb(25, 118, 210);
    --dark-blue: var(--gainsboro);
+   --note-to-self: rgb(149, 205, 255);
+   --price-change: var(--red);
+   --expenses: var(--davys-grey-2);
 
    /* --navigation: #ced4daff; */
    /* --navigation: rgb(191, 199, 211); */

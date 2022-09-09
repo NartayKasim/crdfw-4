@@ -33,6 +33,9 @@ export default function CreateTag({ itemObj, getItem }: CreateTagProps) {
          "ready to post",
          "review",
          "sold",
+         "NOTE TO SELF",
+         "PRICE CHANGE",
+         "EXPENSES",
       ];
       if (tagContent.length === 0) return;
       const tagObj = {

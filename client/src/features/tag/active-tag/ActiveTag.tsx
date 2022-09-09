@@ -37,10 +37,149 @@ export default function ActiveTag({
          borderRadius: "0.25rem",
          color: "var(--cultured)",
       },
+
+      "NOTE TO SELF": {
+         background: "var(--note-to-self)",
+         borderRadius: "0.25rem",
+         color: "var(--charleston-green)",
+      },
+
+      "PRICE CHANGE": {
+         background: "var(--price-change)",
+         borderRadius: "0.25rem",
+         color: "var(--cultured)",
+      },
+
+      EXPENSES: {
+         background: "var(--expenses)",
+         borderRadius: "0.25rem",
+         color: "var(--cultured)",
+      },
    };
 
    const renderSwitch = () => {
       switch (tag.tag_value) {
+         case "EXPENSES":
+            return (
+               <div className={classes.tagWrapper} {...rest}>
+                  <TagLabel style={{ ...colors["EXPENSES"] }}>
+                     {tag.tag_value}
+                     <TagDateAndEdit
+                        toggleEditState={toggleEditState}
+                        displayDate={displayDate}
+                        date={tag.date}
+                     />
+                  </TagLabel>
+                  {!tag.editState ? (
+                     <TagValue
+                        className={classes.value}
+                        style={{
+                           color: "var(--gunmetal)",
+                           textTransform: "none",
+                        }}
+                     >
+                        {tag.value}
+                     </TagValue>
+                  ) : (
+                     <>
+                        <TagInput
+                           value={tag.value}
+                           onChange={handleChange}
+                           name={tag.tag_value}
+                           placeholder={tag.tag_value}
+                        />
+                        <TagFooter
+                           onUpdateValueClick={onUpdateValueClick}
+                           toggleEditState={toggleEditState}
+                           onToggleValueTag={onToggleValueTag}
+                           value_type={tag.value_type}
+                           onDeleteTagClick={onDeleteTagClick}
+                        />
+                     </>
+                  )}
+               </div>
+            );
+         case "PRICE CHANGE":
+            return (
+               <div className={classes.tagWrapper} {...rest}>
+                  <TagLabel style={{ ...colors["PRICE CHANGE"] }}>
+                     {tag.tag_value}
+                     <TagDateAndEdit
+                        toggleEditState={toggleEditState}
+                        displayDate={displayDate}
+                        date={tag.date}
+                     />
+                  </TagLabel>
+                  {!tag.editState ? (
+                     <TagValue
+                        className={classes.value}
+                        style={{
+                           color: "var(--gunmetal)",
+                           textTransform: "none",
+                        }}
+                     >
+                        {tag.value}
+                     </TagValue>
+                  ) : (
+                     <>
+                        <TagInput
+                           value={tag.value}
+                           onChange={handleChange}
+                           name={tag.tag_value}
+                           placeholder={tag.tag_value}
+                        />
+                        <TagFooter
+                           onUpdateValueClick={onUpdateValueClick}
+                           toggleEditState={toggleEditState}
+                           onToggleValueTag={onToggleValueTag}
+                           value_type={tag.value_type}
+                           onDeleteTagClick={onDeleteTagClick}
+                        />
+                     </>
+                  )}
+               </div>
+            );
+         case "NOTE TO SELF":
+            return (
+               <div className={classes.tagWrapper} {...rest}>
+                  <TagLabel style={{ ...colors["NOTE TO SELF"] }}>
+                     {tag.tag_value}
+                     <TagDateAndEdit
+                        toggleEditState={toggleEditState}
+                        displayDate={displayDate}
+                        date={tag.date}
+                     />
+                  </TagLabel>
+                  {!tag.editState ? (
+                     <TagValue
+                        className={classes.value}
+                        style={{
+                           color: "var(--gunmetal)",
+                           textTransform: "none",
+                        }}
+                     >
+                        {tag.value}
+                     </TagValue>
+                  ) : (
+                     <>
+                        <TagInput
+                           value={tag.value}
+                           onChange={handleChange}
+                           name={tag.tag_value}
+                           placeholder={tag.tag_value}
+                        />
+                        <TagFooter
+                           onUpdateValueClick={onUpdateValueClick}
+                           toggleEditState={toggleEditState}
+                           onToggleValueTag={onToggleValueTag}
+                           value_type={tag.value_type}
+                           onDeleteTagClick={onDeleteTagClick}
+                        />
+                     </>
+                  )}
+               </div>
+            );
+
          case "5miles":
             return (
                <div className={classes.tagWrapper} {...rest}>
